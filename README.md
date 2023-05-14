@@ -40,14 +40,14 @@ However, many topics that are not critically important to a new user will not be
 
 The best way to install Nix at the moment is with [the Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer). Details of how to install Nix using the installer are in [chapter 1 of Zero to Nix](https://zero-to-nix.com/start/install).
 
-```
-To install Nix, run curl https://nixos.org/nix/install | sh as a non-root user
-and follow the instructions. Alternatively, you may prefer to download the
-installation script and verify its integrity using GPG signatures. Instructions
-for doing so can be found here: https://nixos.org/nix/download.html.
-```
+## Resources
 
-For more esoteric information, readers should try looking through the [Nix Pills](https://nixos.org/nixos/nix-pills/).
+Here are some clear and well-written tutorials that can be found around the web:
+
+* [Zero to Nix](https://zero-to-nix.com/), a whirlwind tour of the kind of things you can do with Nix
+* [Using Nix with Dockerfiles](https://mitchellh.com/writing/nix-with-dockerfiles), Mitchell Hashimoto writes a guide how to use Nix and Dockerfiles to containerize a small Python Flask app
+* [Some notes on using nix](https://jvns.ca/blog/2023/02/28/some-notes-on-using-nix/) and [How do Nix builds work?](https://jvns.ca/blog/2023/03/03/how-do-nix-builds-work-/), Julia Evans explains how she uses Nix (without flakes) on macOS to build software
+* [Building a Rust service with Nix](https://fasterthanli.me/series/building-a-rust-service-with-nix), Amos writes a guide how to containerize and deploy a realistic Rust application both without Nix and with Nix (from part 9 on)
 
 ## FAQ
 
