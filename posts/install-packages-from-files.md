@@ -99,23 +99,7 @@ building '/nix/store/some-hash-user-environment.drv'...
 created NNN symlinks in user environment
 ```
 
-## From a list of derivations
-
-This is really the same as sets, but in many ways less convenient. If you'd like to use this, you might also find `builtins.attrValues` useful to convert any attribute sets you have to lists of the values.
-
-```nix
-{ pkgs ? import <nixpkgs> {} }:
-
-[
-  pkgs.python
-  pkgs.mypy
-]
-```
-
-The result of this installation will be the exact same as the example above.
-
 ## Links
 
 * Demonstration sources <https://github.com/justinwoo/nix-pkgs-from-files>
-
 * Nix manual examples <https://nixos.org/nix/manual/#examples>
