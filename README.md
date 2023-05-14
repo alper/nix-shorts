@@ -53,6 +53,6 @@ Here are some clear and well-written tutorials that can be found around the web:
 
 ### Why not Nix Pills?
 
-Readers of Nix Pills should well know that the purpose of the Nix Pills are clearly stated multiple times in its contents:
+Readers of [Nix Pills](https://nixos.org/nixos/nix-pills/) should well know that the purpose of the Nix Pills are clearly stated multiple times in its contents:
 
 > These articles are not a tutorial on using Nix. Instead, we're going to walk through the Nix system to understand the fundamentals.
