@@ -32,7 +32,9 @@ $ readlink -f ~/.nix-profile
 
 ## Contributing
 
-Small fixes and elaborations can be contributed via PR. Content suggestions can be done via issues. However, many topics that are not critically important to a new user will not be written about here.
+Small fixes and elaborations can be contributed via PR. Content suggestions can be done via issues. This guide itself is a fork of [Justin's original](https://github.com/justinwoo/nix-shorts) with a large number of updates and changes.
+
+However, many topics that are not critically important to a new user will not be written about here.
 
 ## Installation of Nix
 
