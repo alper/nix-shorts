@@ -39,16 +39,16 @@ To see what all kinds of packages you can install, you can use the Nix repl. See
 
 ```bash
 $ nix repl '<nixpkgs>'
-Welcome to Nix version 2.2.2. Type :? for help.
+Welcome to Nix version 2.13.3. Type :? for help.
 
-Loading '<nixpkgs>'...
-Added 10647 variables.
+Loading installable ''...
+Added 19036 variables.
 
-nix-repl> pkgs.python
-«derivation /nix/store/8qn1lnscayyw9kg7gnxygwwqgpk6257p-python-2.7.16.drv»
+nix-repl> pkgs.python3
+«derivation /nix/store/pf3px0crimrb3z7n9fa1cj97dr7yi0vb-python3-3.10.11.drv»
 
-nix-repl> pkgs.python.pname
-"python"
+nix-repl> pkgs.python3.pname
+"python3"
 
 nix-repl> pkgs. # you can tab complete from here
 ```
