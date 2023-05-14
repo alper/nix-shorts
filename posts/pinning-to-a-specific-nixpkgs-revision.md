@@ -38,7 +38,9 @@ In your expressions, you can simply replace usages of `<nixpkgs>` with your impo
 
 ## More convenient usage
 
-While fetching the tarball directly is fine, this can be a bit arduous to work with when you want to update some expressions automatically (e.g. with [update-prefetch](https://github.com/justinwoo/update-prefetch)). While you could use `builtins.fetchGit`, you'll soon find that it is very expensive to have to fetch the NixPkgs git repository due to how Git works.
+While fetching the tarball directly is fine, this can be a bit arduous to work with when you want to update some expressions automatically (e.g. with [update-prefetch](https://github.com/justinwoo/update-prefetch)).
+
+While you could use `builtins.fetchGit`, you'll soon find that it is very expensive to have to fetch the Nixpkgs git repository due to how Git works.
 
 However, you can use `fetchFromGitHub` from Nixpkgs instead to make life easier, which will use the GitHub tarball archives directly and save you from very time consuming operations.
 
