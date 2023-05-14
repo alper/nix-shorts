@@ -4,12 +4,12 @@ While you could use `nix-env -iA` to look for packages by attribute path from ni
 
 ## From a file of a single derivation expression
 
-Remember that every Nix source file is an expression. You can build and install packages from a file that is a derivation value.
+Remember that every Nix source file is an expression. You can build and install packages from a file that is a derivation value (see [your first derivation](your-first-derivation.md)).
 
 ### `test.txt`
 
 ```
-hello, i am test
+Hello, I am a test.
 ```
 
 ### `value.nix`
