@@ -23,7 +23,7 @@ This expression uses the GitHub tarballs created for each publicly visible commi
 Once you have this, you can consume it as usual.
 
 ```bash
-$ nix run hello -f pinned.nix -c hello
+$ nix run hello -f pinned.nix
 Hello, world!
 ```
 
