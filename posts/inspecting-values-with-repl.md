@@ -1,6 +1,8 @@
 # Inspecting values with Nix REPL
 
-When working with Nix expressions, it might be useful to be able to inspect some values involved. In these cases, the Nix REPL can be pretty useful.
+When working with Nix expressions, it might be useful to be able to inspect some values involved.
+
+In these cases, the Nix REPL can be pretty useful.
 
 ## Some specific REPL forms
 
@@ -9,7 +11,7 @@ When you open up a REPL, you can use `:?` to see the specific REPL forms, e.g.:
 ```bash
 bash> nix repl
 
-Welcome to Nix version 2.2. Type :? for help.
+Welcome to Nix 2.13.3. Type :? for help.
 
 nix-repl> :?
 The following commands are available:
@@ -79,8 +81,8 @@ Using the REPL with nixpkgs is one of the most common usages of the REPL. From h
 
 bash> nix repl '<nixpkgs>' # or `nix repl your-pinned-nixpkgs.nix`
 
-Loading '<nixpkgs>'...
-Added 10647 variables.
+Loading installable ''...
+Added 19036 variables.
 ```
 
 For the most part, what you will find most useful is being able to tab-complete, e.g.:
