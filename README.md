@@ -38,7 +38,7 @@ However, many topics that are not critically important to a new user will not be
 
 ## Installation of Nix
 
-From nixos.org <https://nixos.org/nixos/nix-pills/install-on-your-running-system.html#idm140737316665792>:
+The best way to install Nix at the moment is with [the Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer). Details of how to install Nix using the installer are in [chapter 1 of Zero to Nix](https://zero-to-nix.com/start/install).
 
 ```
 To install Nix, run curl https://nixos.org/nix/install | sh as a non-root user
