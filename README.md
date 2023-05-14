@@ -2,7 +2,7 @@
 
 ![](./logo.png)
 
-A collection of short notes about [Nix](https://nixos.org/), down to what is immediately needed for users.
+A collection of short notes about [Nix](https://nixos.org/), boiled down to what is immediately needed for users.
 
 The aim of this collection is to provide some instantly usable information with clear code demonstrations.
 
