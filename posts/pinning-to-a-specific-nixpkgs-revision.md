@@ -1,8 +1,8 @@
-# Pinning to a specific NixPkgs revision
+# Pinning to a specific Nixpkgs revision
 
-When you work with various packages from NixPkgs that change often or might not be available in a specific version you want, you should pin a specific revision of NixPkgs.
+When you work with various packages from Nixpkgs that change often or might not be available in a specific version you want, you should pin a specific revision of Nixpkgs.
 
-## Fetching NixPkgs
+## Fetching Nixpkgs
 
 If you fetch and import some revision of the `nixos/nixpkgs` repo from GitHub, you will have a drop-in replacement for `<nixpkgs>` that you often use in some revision.
 
@@ -40,7 +40,7 @@ In your expressions, you can simply replace usages of `<nixpkgs>` with your impo
 
 While fetching the tarball directly is fine, this can be a bit arduous to work with when you want to update some expressions automatically (e.g. with [update-prefetch](https://github.com/justinwoo/update-prefetch)). While you could use `builtins.fetchGit`, you'll soon find that it is very expensive to have to fetch the NixPkgs git repository due to how Git works.
 
-However, you can use `fetchFromGitHub` from NixPkgs instead to make life easier, which will use the GitHub tarball archives directly and save you from very time consuming operations.
+However, you can use `fetchFromGitHub` from Nixpkgs instead to make life easier, which will use the GitHub tarball archives directly and save you from very time consuming operations.
 
 ```nix
 let
@@ -58,4 +58,4 @@ import (
 
 ## Links
 
-* NixOS Wiki on pinning NixPkgs: <https://nixos.wiki/wiki/FAQ/Pinning_Nixpkgs>
+* NixOS Wiki on pinning Nixpkgs: <https://nixos.wiki/wiki/FAQ/Pinning_Nixpkgs>
