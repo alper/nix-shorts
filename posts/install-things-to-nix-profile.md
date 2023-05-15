@@ -4,6 +4,7 @@ The Nix Profile is the place where you can install packages permanently so that 
 
 We'll install things there using the `nix profile` subcommend. This is one of several ways to configure your environment with Nix and it is the one we'll discuss here because it's quite straight-forward.
 
+One thing to note is that once you use `nix profile` the older `nix-env` command will no longer work. These commands are not compatible with each other.
 ## What is Nix Profile?
 
 Nix Profile is a symlink location in `~/.nix-profile` when you install Nix that ultimately resolves to a location in the store.
