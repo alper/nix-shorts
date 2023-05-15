@@ -1,8 +1,12 @@
 # Install things to Nix Profile
 
+The Nix Profile is the place where you can install packages permanently so that it will still be there on a new shell.
+
+We'll install things there using the `nix profile` subcommend. This is one of several ways to configure your environment with Nix and it is the one we'll discuss here because it's quite straight-forward.
+
 ## What is Nix Profile?
 
-Nix Profile is a symlink location in `~/.nix-profile` when you install Nix.
+Nix Profile is a symlink location in `~/.nix-profile` when you install Nix that ultimately resolves to a location in the store.
 
 ```bash
 $ readlink ~/.nix-profile
@@ -19,64 +23,70 @@ $ ls ~/.nix-profile
 bin  etc  include  lib  manifest.nix  share
 ```
 
-Notice that `~/.nix-profile/bin` is in your PATH (if you have installed Nix correctly). Whenever you install or remove things from your environment using `nix-env`, some other `/nix/store/some-other-hash-user-environment` will be used.
+Notice that `~/.nix-profile/bin` is in your PATH (if you have installed Nix correctly).
 
-You will see that the directory structure in `~/.nix-profile` matches that of your file system root directory.
+You will see that the directory structure in `~/.nix-profile` resembles that of a Linux file system root directory.
 
 ## How do I install packages?
 
-To install packages from nixpkgs, you can use the `-A` flag to specify which attribute you want to install.
+To install packages from nixpkgs, you have to use `nix profile install nixpkgs#packageName`:
 
 ```bash
-$ nix-env -iA nixpkgs.python
-installing 'python-2.7.16'
+$ nix profile install nixpkgs#deno
+evaluating derivation…
 
-$ which python
-/home/your-user/.nix-profile/bin/python
+$ which deno
+/Users/alpercugun/.nix-profile/bin/deno
 ```
 
-To see what all kinds of packages you can install, you can use the Nix repl. See <https://nixos.wiki/wiki/Nix-repl>
+You can find packages with their names to install online on the nixos packages website: https://search.nixos.org/packages
+
+## How do I find out what is installed in my environment?
+
+To find out what packages have been installed in your profile, you can use `nix profile list`.
 
 ```bash
-$ nix repl '<nixpkgs>'
-Welcome to Nix version 2.13.3. Type :? for help.
-
-Loading installable ''...
-Added 19036 variables.
-
-nix-repl> pkgs.python3
-«derivation /nix/store/pf3px0crimrb3z7n9fa1cj97dr7yi0vb-python3-3.10.11.drv»
-
-nix-repl> pkgs.python3.pname
-"python3"
-
-nix-repl> pkgs. # you can tab complete from here
+$ nix profile list
+…
+12 flake:nixpkgs#legacyPackages.aarch64-darwin.pipenv github:NixOS/nixpkgs/ea11a3977f4cba013d8680667616be827c967ac0#legacyPackages.aarch64-darwin.pipenv /nix/store/nf3355sysvy6s4jv85kd72zzb23c7pzn-pipenv-2023.2.4
+13 flake:nixpkgs#legacyPackages.aarch64-darwin.deno github:NixOS/nixpkgs/0cb867999eec4085e1c9ca61c09b72261fa63bb4#legacyPackages.aarch64-darwin.deno /nix/store/d0q09iiyf0xi79zk4z957z3bj51gh05c-deno-1.33.2
+14 flake:nixpkgs#legacyPackages.aarch64-darwin.nodePackages.typescript github:NixOS/nixpkgs/0cb867999eec4085e1c9ca61c09b72261fa63bb4#legacyPackages.aarch64-darwin.nodePackages.typescript /nix/store/y3jvabiff9ffisnsx121nm7ffa3wrd3s-typescript-5.0.4
+…
 ```
 
 ## How do I uninstall packages?
 
-The easiest method is to use `nix-env -e` (short for `uninstall`) and tab-complete.
+Somewhat awkwardly, you'll have to uninstall packages by their index.
+
+So first you do `nix profile list` and see which number the package starts with that you want to remove. For `deno` in the list in the previous section that's `13`.
+
+Then to remove it you do `nix profile remove 13`.
 
 ```bash
-$ nix-env -e python
-uninstalling 'python-2.7.16'
+$ nix profile remove
+removing 'flake:nixpkgs#legacyPackages.aarch64-darwin.deno'
 ```
 
-## How do I find out what is installed in my environment?
+## How do I upgrade packages?
 
-To find out what packages you have installed in your environment, you can use `nix-env -q` (short for "query").
+You can upgrade your installed packages by index with `nix profile upgrade 1` or you can upgrade all of them with `nix profile upgrade '.*'`.
 
-```bash
-# example, may not match your results
-$ nix-env -q
-alacritty
-autorandr-1.8.1
-bash-completion-2.8
-bat-0.11.0
-colordiff-1.0.18
-```
+Don't forget to run `nix-collect-garbage` regularly to remove unused packages.
 
 ## Links
 
-* Nix package manager guide quick start: <https://nixos.org/nix/manual/#chap-quick-start>
-* Nix package manger guide on Profile: <https://nixos.org/nix/manual/#sec-profiles>
+You can read more about nix profile and its subcommands in the excellent man pages. Use these commands:
+
+```bash
+$ nix help profile
+$ nix help profile install
+$ nix help profile list
+$ nix help profile remove
+```
+
+Or you can read about this command online in the Nix Reference Manual: https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html
+
+Some other commands you can try out are:
+
+* `nix profile history` to look at the history of your profile
+* `nix profile diff-closures` to see how your profile changed
