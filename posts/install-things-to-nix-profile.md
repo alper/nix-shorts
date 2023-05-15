@@ -63,7 +63,7 @@ So first you do `nix profile list` and see which number the package starts with 
 Then to remove it you do `nix profile remove 13`.
 
 ```bash
-$ nix profile remove
+$ nix profile remove 13
 removing 'flake:nixpkgs#legacyPackages.aarch64-darwin.deno'
 ```
 
