@@ -73,6 +73,16 @@ You can upgrade your installed packages by index with `nix profile upgrade 1` or
 
 Don't forget to run `nix-collect-garbage` regularly to remove unused packages.
 
+## Can I go back to a previous profile?
+
+Nix Profile keeps track of each state that your profile was in. You can see the history of states with `nix profile history`.
+
+If you want to go back to a previous state, you can pass the number to rollback: `nix profile rollback --to 36` and then check back in history that it put you there.
+
+You can always go back again by putting the last number (or any other) after `--to`.
+
+You can even see the change in closure sizes from state to state with `nix profile diff-closures`.
+
 ## Links
 
 You can read more about nix profile and its subcommands in the excellent man pages. Use these commands:
@@ -84,9 +94,4 @@ $ nix help profile list
 $ nix help profile remove
 ```
 
-Or you can read about this command online in the Nix Reference Manual: https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html
-
-Some other commands you can try out are:
-
-* `nix profile history` to look at the history of your profile
-* `nix profile diff-closures` to see how your profile changed
+Or you can read about `nix profile` online in the Nix Reference Manual: https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html
