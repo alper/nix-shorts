@@ -53,7 +53,7 @@ Small fixes and elaborations can be contributed via PR. Content suggestions can 
 
 This guide itself is a fork of [Justin's original](https://github.com/justinwoo/nix-shorts) with a large number of updates and changes.
 
-Many topics that are not critically important to a new user will not be written about here.
+This document intentionally simplifies and omits a large part of the Nix ecosystem. Contributions will need to follow suit.
 
 ## Resources
 
