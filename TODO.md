@@ -17,3 +17,6 @@ Things to work on:
 * [ ] Remove nix-env from install-packages-from-files
   * [ ] Replace with nix profile install: https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html
   * [ ] https://stop-using-nix-env.privatevoid.net/
+* [ ] Check this for more about shell
+  * [ ] https://nixos.org/guides/nix-pills/developing-with-nix-shell.html
+* [ ] Add bit to README about enabling command and flakes.
