@@ -20,3 +20,4 @@ Things to work on:
 * [ ] Check this for more about shell
   * [ ] https://nixos.org/guides/nix-pills/developing-with-nix-shell.html
 * [ ] Add bit to README about enabling command and flakes.
+* [ ] Make a path of all the files and see where there is any overlap and what can be cut

@@ -6,7 +6,24 @@ A collection of short notes about [Nix](https://nixos.org/), boiled down to what
 
 The aim of this collection is to provide some instantly usable information with clear code demonstrations.
 
-While you can read the posts in this repo in any order, you might start from how to build your first derivation, to understand how Nix derivations work: <https://github.com/justinwoo/nix-shorts/blob/master/posts/your-first-derivation.md>
+## Guide
+
+While you can read the posts in this repo in any order, here's a suggestion:
+
+* Try out installing things [temporarily into a nix-shell](working-with-nix-shells.md)
+* Make this permanent by [adding these packages to your profile](install-things-to-nix-profile.md)
+* Understand [how a simple derivation works](your-first-derivation.md) and is built
+* [Setup a flake](develop-and-build-with-flakes.md) to easily work on a project and build it with declaratively defined tools and dependencies
+
+## Requirements
+
+### Install Nix
+
+The best way to install Nix at the moment is with [the Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer). Details of how to install Nix using the installer are in [chapter 1 of Zero to Nix](https://zero-to-nix.com/start/install).
+
+### Enable flakes
+
+The articles here will be flake first and TODO
 
 ## How to read articles in this repo
 
@@ -35,10 +52,6 @@ $ readlink -f ~/.nix-profile
 Small fixes and elaborations can be contributed via PR. Content suggestions can be done via issues. This guide itself is a fork of [Justin's original](https://github.com/justinwoo/nix-shorts) with a large number of updates and changes.
 
 Many topics that are not critically important to a new user will not be written about here.
-
-## Installation of Nix
-
-The best way to install Nix at the moment is with [the Determinate Nix Installer](https://github.com/DeterminateSystems/nix-installer). Details of how to install Nix using the installer are in [chapter 1 of Zero to Nix](https://zero-to-nix.com/start/install).
 
 ## Resources
 
