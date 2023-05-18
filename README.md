@@ -10,10 +10,10 @@ The aim of this collection is to provide some instantly usable information with 
 
 While you can read the posts in this repo in any order, here's a suggestion:
 
-* Try out installing things [temporarily into a nix-shell](working-with-nix-shells.md)
-* Make this permanent by [adding these packages to your profile](install-things-to-nix-profile.md)
-* Understand how a [simple derivation](your-first-derivation.md) works and is built
-* [Setup a flake](develop-and-build-with-flakes.md) to easily work on a project and build it
+* Try out installing things [temporarily into a nix-shell](posts/working-with-nix-shells.md)
+* Make this permanent by [adding these packages to your profile](posts/install-things-to-nix-profile.md)
+* Understand how a [simple derivation](posts/your-first-derivation.md) works and is built
+* [Setup a flake](posts/develop-and-build-with-flakes.md) to easily work on a project and build it
 
 ## Requirements
 
