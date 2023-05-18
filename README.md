@@ -12,8 +12,8 @@ While you can read the posts in this repo in any order, here's a suggestion:
 
 * Try out installing things [temporarily into a nix-shell](working-with-nix-shells.md)
 * Make this permanent by [adding these packages to your profile](install-things-to-nix-profile.md)
-* Understand [how a simple derivation works](your-first-derivation.md) and is built
-* [Setup a flake](develop-and-build-with-flakes.md) to easily work on a project and build it with declaratively defined tools and dependencies
+* Understand how a [simple derivation](your-first-derivation.md) works and is built
+* [Setup a flake](develop-and-build-with-flakes.md) to easily work on a project and build it
 
 ## Requirements
 
@@ -25,7 +25,7 @@ The best way to install Nix at the moment is with [the Determinate Nix Installer
 
 The articles here will be flake first and TODO
 
-## How to read articles in this repo
+## Stylistic notes
 
 All articles are meant to be easy enough to approach with clear examples of terminal commands, code, or file setups. When project setups are needed, appropriate directories will be in this repo and referenced.
 
@@ -49,7 +49,9 @@ $ readlink -f ~/.nix-profile
 
 ## Contributing
 
-Small fixes and elaborations can be contributed via PR. Content suggestions can be done via issues. This guide itself is a fork of [Justin's original](https://github.com/justinwoo/nix-shorts) with a large number of updates and changes.
+Small fixes and elaborations can be contributed via PR. Content suggestions can be done via issues.
+
+This guide itself is a fork of [Justin's original](https://github.com/justinwoo/nix-shorts) with a large number of updates and changes.
 
 Many topics that are not critically important to a new user will not be written about here.
 
