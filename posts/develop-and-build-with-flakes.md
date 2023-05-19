@@ -163,3 +163,4 @@ Returns very detailed output about the build process. Useful for debugging.
 * [Practical Nix Flakes](https://serokell.io/blog/practical-nix-flakes)
 * [A first Nix package definition](https://nix-tutorial.gitlabpages.inria.fr/nix-tutorial/first-package.html)
 * [Basic Dependencies and Hooks](https://nixos.org/guides/nix-pills/basic-dependencies-and-hooks.html), some terse documentation on `buildInputs` and other parts of `mkDerivation`
+* [Why you don't need flake-utils](https://ayats.org/blog/no-flake-utils/), details about what flake-utils does
