@@ -69,6 +69,8 @@ For languages where builds don't use those tools there are many language specifi
 
 Because it's a bit of a hassle to generate all the relevant files for an [automake C project](https://thoughtbot.com/blog/the-magic-behind-configure-make-make-install), we're writing our own `buildPhase` and `installPhase` here with shell commands (these go between the two single quotes). In the `buildPhase` we compile and link the source code. In the `installPhase` we move the resulting executable `hello` to `$out`, the location where Nix has determined the result of this derivation should live.
 
+The bit about `flake-utils.lib.eachDefaultSystem` is not something you need to understand now but you'll run into it a lot. What it does in short is that it creates the same flake output for each default system. You can see the result of that in `nix flake show` below.
+
 Let's look at how that works.
 
 ## nix build
