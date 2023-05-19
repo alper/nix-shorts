@@ -21,3 +21,8 @@ Things to work on:
   * [ ] https://nixos.org/guides/nix-pills/developing-with-nix-shell.html
 * [ ] Add bit to README about enabling command and flakes.
 * [ ] Make a path of all the files and see where there is any overlap and what can be cut
+* [ ] Nix language
+  * [ ] in x minutse https://learnxinyminutes.com/docs/nix/
+* [ ] https://serokell.io/blog/what-is-nix
+* [ ] Get listing in awesome nix updated: https://github.com/nix-community/awesome-nix
+* [ ] Tour of nix: https://nixcloud.io/tour/?id=6
