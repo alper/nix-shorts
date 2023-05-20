@@ -75,6 +75,7 @@ Some clear and well-written tutorials that can be found around the web:
 * [Using Nix with Dockerfiles](https://mitchellh.com/writing/nix-with-dockerfiles), Mitchell Hashimoto writes how to use Nix and Dockerfiles to containerize a small Python Flask app
 * [Some notes on using nix](https://jvns.ca/blog/2023/02/28/some-notes-on-using-nix/) and [How do Nix builds work?](https://jvns.ca/blog/2023/03/03/how-do-nix-builds-work-/), Julia Evans explains how she uses Nix (without flakes) on macOS to build software
 * [Building a Rust service with Nix](https://fasterthanli.me/series/building-a-rust-service-with-nix), Amos writes a guide how to containerize and deploy a realistic Rust application both without Nix and with Nix (from part 9 on)
+* [Nix from First Principles: Flake Edition](https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/), Tony Finn covers similar ground but goes more in depth in many places
 
 ## FAQ
 
