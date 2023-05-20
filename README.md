@@ -23,7 +23,17 @@ The best way to install Nix at the moment is with [the Determinate Nix Installer
 
 ### Enable flakes
 
-The articles here will be flake first and TODO
+This guide will be flakes first and to be able to use that you'll have to enable what is at this moment still an 'experimental' feature.
+
+If you installed using the Determinate Nix Installer linked in the previous section, then you don't have to do anything and flakes are already enabled for you.
+
+If not, the [wiki page on Flakes](https://nixos.wiki/wiki/Flakes) has a section on how to enable flakes permanently. The most common way of doing this is by adding this line:
+
+```
+experimental-features = nix-command flakes
+```
+
+To the file `/etc/nix/nix.conf` on your system.
 
 ## Stylistic notes
 
@@ -53,7 +63,7 @@ Small fixes and elaborations can be contributed via PR. Content suggestions can 
 
 This guide itself is a fork of [Justin's original](https://github.com/justinwoo/nix-shorts) with a large number of updates and changes.
 
-This document intentionally simplifies and omits a large part of the Nix ecosystem. Contributions will need to follow suit.
+This document intentionally simplifies and omits a large part of the Nix ecosystem. NixOS, Home Manager and many other tools are out of scope.
 
 ## Resources
 
