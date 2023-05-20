@@ -154,31 +154,3 @@ nix-repl> :?
 ## Links
 
 * Nix wiki on REPL: <https://nixos.wiki/wiki/Nix-repl>
-
-## P.S.
-
-I have not found a very useful way to use Nix repl to actually work with individual derivations. To explain, consider that we have some project with a `default.nix` derivation:
-
-```bash
-bash> nix repl default.nix
-
-Loading 'default'...
-Added 39 variables. # what variables were loaded? dunno!
-
-nix-repl> src # useful!
-# someresult, e.g. a derivation
-
-nix-repl> outPath # also useful!
-"/nix/store/somehash-somename"
-```
-
-Seems useful, but seemingly there is no way to build our top-level derivation, so we need to do this manually.
-
-```bash
-nix-repl> :b import ./default.nix {}
-
-this derivation produced the following outputs:
-  out -> /nix/store/somehash-somename
-```
-
-There may be more hidden elements to the REPL that I don't know about, but for the most part, the REPL is useful only really in looking at what attributes are inside of a given package set more than interactively working with derivations.
