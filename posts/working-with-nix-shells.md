@@ -1,6 +1,8 @@
 # Working with Nix Shell
 
-Nix shells are quite useful for a number of different reasons, but the main reason is that it can provide you programs you want at specific versions.
+Nix shells give you an ephemeral shell environment with packages installed for you to use. This is useful to try out things and with `mkShell` you can describe and recreate such an environment whenever you need it.
+
+The `nix-shell` command is an old style command with a dash in between. During the transition to the next version of Nix, there's no way around these commands and it's good to at least know that they exist.
 
 ## Shells with `-p`
 
@@ -25,7 +27,9 @@ $
 
 ### Expressions as arguments
 
-But instead of only top level attributes, you can also put entire expressions in the `-p` argument. For example, with the [easy-purescript-nix](https://github.com/justinwoo/easy-purescript-nix/) project:
+But instead of only top level attributes, you can also put entire expressions in the `-p` argument. This is more of an advanced use, but it's included here so that you've seen it once.
+
+For example, with the [easy-purescript-nix](https://github.com/justinwoo/easy-purescript-nix/) project:
 
 ```bash
 $ nix-shell \
@@ -55,7 +59,7 @@ $ nix-shell -p '(import ./default.nix {}).purs-0_13_0' --run 'which purs; purs -
 
 To work with Nix shells in some organized manner, you probably will want to use a source-controlled file defining a derivation. To make this concise and explicit, you can use `mkShell` from Nixpkgs.
 
-Note that `nix-shell` will use files with an agreed upon name in the current directory. It will look for a `shell.nix` file first and if that doesn't exist, a `default.nix` file will be used.
+Instead of having the expression passed on the command line, `nix-shell` will load the expression from a file. If no file is passed explicitly, `nix-shell` will look for either a file named `shell.nix` or a file named `default.nix` in that order.
 
 ```nix
 # shell.nix
