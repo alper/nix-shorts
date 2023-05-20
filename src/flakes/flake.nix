@@ -30,6 +30,9 @@
             mkdir -p $out/bin
             mv hello $out/bin
             '';
+
+            # Anything else you put here will be made available in the shell
+            TEST_ENV = "TEST";
           };
 
           devShells.default = mkShell {
