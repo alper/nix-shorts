@@ -15,6 +15,8 @@ While you can read the posts in this repo in any order, here's a suggestion:
 * Understand how a [simple derivation](posts/your-first-derivation.md) works and is built
 * [Setup a flake](posts/develop-and-build-with-flakes.md) to easily work on a project and build it
 
+From there on you should learn the Nix language ([here](https://fasterthanli.me/series/building-a-rust-service-with-nix/part-9#nix-the-language) or [here](https://nix.dev/tutorials/first-steps/nix-language)) and try to read and customize more complex Nix expressions.
+
 ## Requirements
 
 ### Install Nix
