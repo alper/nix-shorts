@@ -95,4 +95,5 @@ $ nix help profile list
 $ nix help profile remove
 ```
 
-Or you can read about `nix profile` online in the Nix Reference Manual: https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html
+* [Stop using nix-env](https://stop-using-nix-env.privatevoid.net/), "If you really need to imperatively manage some of your packages, [nix profile] is your best option."
+* [nix profile — Nix Reference Manual](https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-profile.html)
