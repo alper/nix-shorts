@@ -1,6 +1,6 @@
 # Inspecting values with Nix REPL
 
-When working with Nix expressions, it might be useful to be able to inspect some values involved.
+When working with Nix expressions, it can be useful to inspect some values involved.
 
 In these cases, the Nix REPL can be pretty useful.
 
@@ -25,7 +25,7 @@ The following commands are available:
   # ...
 ```
 
-The top three entries will be most often useful for us.
+The top three entries will be the most useful for us.
 
 ### Evaluate
 
@@ -120,7 +120,7 @@ nix-shell> purs --version
 0.13.0
 ```
 
-We can also build derivations from here to produce the outPath.
+We can also build derivations from here and produce the out path.
 
 ```bash
 nix-repl> pkgs.purescript.outPath

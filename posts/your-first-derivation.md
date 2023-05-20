@@ -4,7 +4,7 @@
 
 A derivation in Nix is a definition of a build, which takes some inputs and produces an output. The inputs are usually in a `src` attribute, and the output is a path in the Nix store like this: `/nix/store/some-hash-pkg-name`.
 
-Building a derivation will create a symlink called `result` to the output in the current directory.
+Building a derivation will create a symlink called `result` to the resulting output in the current directory for easy access.
 
 ## Basic derivation example
 
@@ -14,15 +14,16 @@ Start with some inputs you want to build with.
 $ cd src/derivation
 
 $ ls
-hi.txt
+hello.txt
 
 $ cat hello.txt
 Hello!
 ```
 
-Then prepare a `default.nix`, which is the file that `nix-build` will look for.
+Then prepare a `default.nix`, which is the file that `nix-build` will look for. This is again an old style command but for this example it's a simple way to build a derivation no we'll use it.
 
 ```nix
+# src/derivation/default.nix
 # Allow the nixpkgs import to be overridden if desired
 { pkgs ? import <nixpkgs> {} }:
 
@@ -41,6 +42,7 @@ pkgs.stdenv.mkDerivation {
     # $out is an automatically generated filepath by nix,
     # but it's up to you to make it what you need. We'll create a directory at
     # that filepath, then copy the sources into it.
+    # $out could also be just a single file.
     mkdir -p $out
     cp -rv $src/* $out
   '';
@@ -69,7 +71,7 @@ In this derivation, we only needed to define the `installPhase` to override the 
 
 ### Why use the nixpkgs `stdenv.mkDerivation`?
 
-While derivation can be written from scratch using the builtin function `derivation`, the reality is that there are many standardized steps to a build that should be handled.
+While derivations can be written from scratch using the builtin function `derivation`, the reality is that there are many standardized steps to a build that should be handled.
 
 That's why most derivations you work with when using Nix will be created by `mkDerivation` and it should be the one you learn first.
 

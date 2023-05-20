@@ -2,13 +2,12 @@
 
 ## What is a Flake?
 
-Flakes are the cool new thing and have been like that for a couple of years now. They're marked as experimental still though it looks like they'll be stabilized soon now since they are a very popular way to use Nix.
+Flakes are ‘new’ and experimental and have been like that for a couple of years. It looks like they'll be stabilized soon now since they are a very popular way to use Nix.
 
-It's possible to do pretty much any type of configuration using the flake format, but we'll limit ourselves here to two closely related applications. We put a flake.nix file in a project folder and use the definition in the file to setup a development environment for that environment and perform the build of that project.
-
-`src/flake.nix`
+It's possible to do pretty much any type of configuration using the flake format, but we'll limit ourselves here to two closely related applications. We put a `flake.nix` file in a project folder and use the definition in the file to setup a development environment for that environment and perform the build of that project.
 
 ```nix
+# src/flakes/flake.nix
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -21,14 +20,14 @@ It's possible to do pretty much any type of configuration using the flake format
           pkgs = import nixpkgs {
             inherit system;
           };
-          buildInputs = [ pkgs.llvmPackages_14.clang ];
+          necessary_packages = [ pkgs.llvmPackages_14.clang ];
         in
         with pkgs;
         {
           packages.default = pkgs.stdenv.mkDerivation {
             name = "clang-hello";
             src = ./.;
-            buildInputs = [] ++ buildInputs;
+            buildInputs = [] ++ necessary_packages;
 
             buildPhase = ''
             clang -c hello.c
@@ -41,10 +40,12 @@ It's possible to do pretty much any type of configuration using the flake format
             mkdir -p $out/bin
             mv hello $out/bin
             '';
+
+            TEST_ENV = "TEST";
           };
 
           devShells.default = mkShell {
-            packages = [] ++ buildInputs;
+            packages = [] ++ necessary_packages;
 
             shellHook = ''
             echo "Shell!"
@@ -55,15 +56,15 @@ It's possible to do pretty much any type of configuration using the flake format
 }
 ```
 
-There's a bunch of stuff going on in there.
+There's a bunch of stuff going on in here.
 
-This is one of the most basic possible flakes that does something non-trivial. The default package `packages.default` is a minimal derivation for this single file C project.
+This is one of the most basic possible flakes that does something non-trivial. The default output in `packages.default` is a minimal derivation to bulid this single file C project.
 
-The derivation is passed a `name`, and the location where the `src` can be found for the project. In a lot of cases this location will be the same directory and it will be written in Nix as `./.`. [Paths are literals in Nix](https://nix.dev/tutorials/first-steps/nix-language#file-system-paths).
+The derivation is passed a `name`, and the location where the `src` can be found for the project. In a lot of cases this location will be the same directory and it will be written in Nix as `./.` ([paths are literals in Nix](https://nix.dev/tutorials/first-steps/nix-language#file-system-paths)).
 
-Then we take the `buildInputs` and put it in `buildInputs` here. In this case we'll compile the file with Clang and pass in the exact reference to that package in here.
+Then we take the `necessary_packages` and append it to `buildInputs` here. In this case we'll compile the file with the Clang compiler which is in there.
 
-Then the build happens which consists of a bunch of [phases documented in the manual](https://nixos.org/manual/nixpkgs/stable/#build-phase). The default behaviour of these phases is to call `./configure; make; make install`, if those files happen to exist.
+Then the build happens which consists of a series of [phases documented in the manual](https://nixos.org/manual/nixpkgs/stable/#build-phase). The default behaviour of these phases is to call `./configure; make; make install`, if those files happen to exist.
 
 For languages where builds don't use those tools there are many language specific overlays that will handle the standard build process and hide away the plumbing.
 
@@ -71,14 +72,14 @@ Because it's a bit of a hassle to generate all the relevant files for an [automa
 
 The bit about `flake-utils.lib.eachDefaultSystem` is not something you need to understand now but you'll run into it a lot. What it does in short is that it creates the same flake output for each default system. You can see the result of that in `nix flake show` below.
 
-Let's look at how that works.
+Let's look at this in action.
 
 ## nix build
 
 Go to the `./src/flakes/` directory here and run `nix build`. This will grab the `flake.nix` file by convention and build the `packages.default` (transformed into `packages.${system}.default`) in the flake.
 
 ```bash
-$ cd src/
+$ cd src/flakes
 $ nix build
 $ ls
 
@@ -90,7 +91,7 @@ $ ./result/bin/hello
 Hello World
 ```
 
-The output location is in the Nix store and from there it's symlinked to our current directory so we can easily access it and run it.
+The output is in the Nix store from where it is symlinked to our current directory so we can easily access it and run it.
 
 Running `nix build` again is very fast because as long as the inputs haven't changed, Nix won't do anything here.
 
@@ -116,9 +117,9 @@ You can also directly run a command in the given shell like this: `nix develop -
 
 * `nix flake show`
 
-Shows the outputs of a flake. Useful for figuring what it is you are doing.
+Shows the outputs of a flake. Useful for figuring what is happening.
 
-For the example this returns:
+For our example this returns:
 
 ```
 git+file:///Users/alpercugun/Documents/projects/nix-shorts?dir=src
@@ -144,7 +145,7 @@ git+file:///Users/alpercugun/Documents/projects/nix-shorts?dir=src
 
 * `nix flake check`
 
-Checks whether the flake can be evaluated and give you feedback on things you may be doing wrong.
+Checks whether the flake can be evaluated and gives feedback on things that may be wrong.
 
 * `nix flake metadata`
 

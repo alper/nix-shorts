@@ -6,10 +6,10 @@ The `nix-shell` command is an old style command with a dash in between. During t
 
 ## Shells with `-p`
 
-Using `nix-shell` with `-p` can get you quickly set up with a shell with packages from NixPkgs installed.
+Using `nix-shell` with `-p` (short for `--packages`) can get you quickly set up with a shell with packages from Nixpkgs installed.
 
 ```bash
-$ nix-shell -p hello
+$ nix-shell -p hello wget
 
 # nix sub shell with hello installed
 [nix-shell:~/nix-shorts]$ which hello
@@ -57,16 +57,18 @@ $ nix-shell -p '(import ./default.nix {}).purs-0_13_0' --run 'which purs; purs -
 
 ## Nixpkgs mkShell
 
-To work with Nix shells in some organized manner, you probably will want to use a source-controlled file defining a derivation. To make this concise and explicit, you can use `mkShell` from Nixpkgs.
+To work with Nix shells in some organized manner, you probably will want to use a source-controlled file defining the shell. To make this concise and explicit, you can use `mkShell` from Nixpkgs.
 
 Instead of having the expression passed on the command line, `nix-shell` will load the expression from a file. If no file is passed explicitly, `nix-shell` will look for either a file named `shell.nix` or a file named `default.nix` in that order.
+
+Here's a way get the same shell we just had:
 
 ```nix
 # src/shell/shell.nix
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.mkShell {
-  buildInputs = [ pkgs.hello ];
+  buildInputs = [ pkgs.hello pkgs.wget ];
 }
 ```
 

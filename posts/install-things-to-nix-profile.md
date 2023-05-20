@@ -1,13 +1,13 @@
 # Install things to Nix Profile
 
-The Nix Profile is the place where you can install packages permanently so that it will still be there on a new shell.
+The Nix Profile is the place where you can install packages permanently so that they will still be there when you start a new shell.
 
-We'll install things there using the `nix profile` subcommend. This is one of several ways to configure your environment with Nix and it is the one we'll discuss here because it's quite straight-forward.
+We'll install things using the `nix profile` subcommand. This is one of several ways to configure your environment with Nix and it is the one we'll discuss here.
 
 One thing to note is that once you use `nix profile` the older `nix-env` command will no longer work. These commands are not compatible with each other.
 ## What is Nix Profile?
 
-Nix Profile is a symlink location in `~/.nix-profile` when you install Nix that ultimately resolves to a location in the store.
+Nix Profile is a symlink location that's created in `~/.nix-profile` when you install Nix that resolves to a location in the store.
 
 ```bash
 $ readlink ~/.nix-profile
@@ -24,9 +24,7 @@ $ ls ~/.nix-profile
 bin  etc  include  lib  manifest.nix  share
 ```
 
-Notice that `~/.nix-profile/bin` is in your PATH (if you have installed Nix correctly).
-
-You will see that the directory structure in `~/.nix-profile` resembles that of a Linux file system root directory.
+Because `~/.nix-profile/bin` is in your PATH (if you have installed Nix correctly), you can run the executables of the packages that are installed in your profile.
 
 ## How do I install packages?
 
@@ -72,7 +70,7 @@ removing 'flake:nixpkgs#legacyPackages.aarch64-darwin.deno'
 
 You can upgrade your installed packages by index with `nix profile upgrade 1` or you can upgrade all of them with `nix profile upgrade '.*'`.
 
-Don't forget to run `nix-collect-garbage` regularly to remove unused packages.
+Run `nix-collect-garbage` regularly to remove unused packages from your system.
 
 ## Can I go back to a previous profile?
 

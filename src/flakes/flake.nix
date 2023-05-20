@@ -10,13 +10,13 @@
           pkgs = import nixpkgs {
             inherit system;
           };
-          buildInputs = [ pkgs.llvmPackages_14.clang ];
+          necessary_packages = [ pkgs.llvmPackages_14.clang ];
         in
         with pkgs;
         {
           packages.default = pkgs.stdenv.mkDerivation {
             name = "clang-hello";
-            buildInputs = [] ++ buildInputs;
+            buildInputs = [] ++ necessary_packages;
             src = ./.;
 
             buildPhase = ''
@@ -36,7 +36,7 @@
           };
 
           devShells.default = mkShell {
-            packages = [] ++ buildInputs;
+            packages = [] ++ necessary_packages;
 
             shellHook = ''
             echo "Shell!"
