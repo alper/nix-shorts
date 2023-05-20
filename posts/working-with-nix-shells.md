@@ -62,7 +62,7 @@ To work with Nix shells in some organized manner, you probably will want to use 
 Instead of having the expression passed on the command line, `nix-shell` will load the expression from a file. If no file is passed explicitly, `nix-shell` will look for either a file named `shell.nix` or a file named `default.nix` in that order.
 
 ```nix
-# shell.nix
+# src/shell/shell.nix
 { pkgs ? import <nixpkgs> {} }:
 
 pkgs.mkShell {
