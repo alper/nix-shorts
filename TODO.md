@@ -18,3 +18,4 @@ Things to work on:
   * [ ] .envrc setup: https://gist.github.com/goofansu/dc310971ca5131132a6ae44998a67eee
   * [ ] https://www.softwarefactory-project.io/reproducible-shell-environments-via-nix-flakes.html
   * [ ] https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/nix-3-package-manager/
+  * [ ] Process and add bit about developer flakes: https://ayats.org/blog/nix-workflow/
