@@ -1,9 +1,6 @@
 
 Things to work on:
 
-* [ ] Nix language
-  * [ ] in x minutse https://learnxinyminutes.com/docs/nix/
-  * [ ] Tour of nix: https://nixcloud.io/tour/?id=6
 * [ ] Explain more complex builds using third party material (crane for Rust, python, Docker etc.)
 * [ ] Get listing in awesome nix updated: https://github.com/nix-community/awesome-nix
   * [ ] See where else the shorts are listed
