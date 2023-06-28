@@ -14,5 +14,12 @@ Things to work on:
   * [ ] https://discourse.nixos.org/t/nix-shells-tips-tricks-and-best-practices/22332
   * [ ] .envrc setup: https://gist.github.com/goofansu/dc310971ca5131132a6ae44998a67eee
   * [ ] https://www.softwarefactory-project.io/reproducible-shell-environments-via-nix-flakes.html
-  * [ ] https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/nix-3-package-manager/
   * [ ] Process and add bit about developer flakes: https://ayats.org/blog/nix-workflow/
+  * [ ] https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/nix-3-package-manager/
+  * [ ] Add `nix profile wipe-history`
+  * [ ] Replace with `nix store gc`
+  * [ ] Add this as what happens underneath mkDerivation: https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/nix-5-derivation-intro/
+  * [ ] Check if these tools are in the mkDerivation stdenv: https://nixos.org/manual/nixpkgs/stable/#sec-tools-of-stdenv
+  * [ ] Setup nix-direnv: https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/nix-8-flakes-and-developer-environments/
+  * [ ] Add `nix run` to flakes example? https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/nix-9-runnable-flakes/
+  * [ ] Read and add: https://xeiaso.net/blog/nix-flakes-1-2022-02-21
