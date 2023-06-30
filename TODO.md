@@ -23,3 +23,4 @@ Things to work on:
   * [ ] Setup nix-direnv: https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/nix-8-flakes-and-developer-environments/
   * [ ] Add `nix run` to flakes example? https://tonyfinn.com/blog/nix-from-first-principles-flake-edition/nix-9-runnable-flakes/
   * [ ] Read and add: https://xeiaso.net/blog/nix-flakes-1-2022-02-21
+  * [ ] Add bit about `nix eval`? (see: https://figsoda.github.io/posts/2023/developing-nix-libraries-with-subflakes/)

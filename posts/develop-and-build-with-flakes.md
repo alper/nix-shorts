@@ -167,3 +167,4 @@ Returns very detailed output about the build process. Useful for debugging.
 * [flake-utils](https://github.com/numtide/flake-utils)
 * [Why you don't need flake-utils](https://ayats.org/blog/no-flake-utils/), details about what flake-utils does
 * [Reproducible Shell environments via Nix Flakes](https://www.softwarefactory-project.io/reproducible-shell-environments-via-nix-flakes.html)
+* [Flakes wiki page](https://nixos.wiki/wiki/Flakes)
