@@ -109,7 +109,7 @@ Shell!
 /nix/store/fm4frncax8sd0pcs5sq4yc2mnkz3r6li-clang-wrapper-14.0.6/bin/clang
 ```
 
-There's also a shell hook there for demonstration purchases that prints "Shell!" when we enter the shell.
+There's also a shell hook there for demonstration purposes that prints "Shell!" when we enter the shell.
 
 You can also directly run a command in the given shell like this: `nix develop --command clang`
 
